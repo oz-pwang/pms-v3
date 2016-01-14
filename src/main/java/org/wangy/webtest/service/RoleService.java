@@ -1,8 +1,8 @@
 package org.wangy.webtest.service;
 
-import org.wangy.webtest.model.Role;
-
 import java.util.List;
+
+import org.wangy.webtest.model.Role;
 
 
 /**
@@ -26,12 +26,22 @@ public interface RoleService {
   /**
    * DOCUMENT ME!
    *
-   * @param   roleName  DOCUMENT ME!
-   * @param   password  DOCUMENT ME!
+   * @param   name  roleName DOCUMENT ME!
    *
    * @return  DOCUMENT ME!
    */
   Role findRole(String name);
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * findRoles.
+   *
+   * @param   query  String
+   *
+   * @return  List
+   */
+  List<Role> findRoles(String query);
 
   //~ ------------------------------------------------------------------------------------------------------------------
 
@@ -47,11 +57,32 @@ public interface RoleService {
   //~ ------------------------------------------------------------------------------------------------------------------
 
   /**
+   * getter method for count.
+   *
+   * @return  int
+   */
+  int getCount();
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
    * DOCUMENT ME!
    *
    * @return  DOCUMENT ME!
    */
   List<Role> list();
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * list.
+   *
+   * @param   startSize  int
+   * @param   limitSize  int
+   *
+   * @return  List
+   */
+  List<Role> list(int startSize, int limitSize);
 
   //~ ------------------------------------------------------------------------------------------------------------------
 
@@ -72,10 +103,4 @@ public interface RoleService {
    * @param  role  DOCUMENT ME!
    */
   void update(Role role);
-
-  List<Role> findRoles(String query);
-
-  List<Role> list(int startSize, int limitSize);
-
-  int getCount();
 } // end interface RoleService

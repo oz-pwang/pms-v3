@@ -3,6 +3,7 @@ package org.wangy.webtest.service;
 import java.util.List;
 
 import org.hibernate.Query;
+
 import org.wangy.webtest.model.User;
 
 
@@ -37,6 +38,30 @@ public interface UserService {
   //~ ------------------------------------------------------------------------------------------------------------------
 
   /**
+   * findUsers.
+   *
+   * @param   query  String
+   *
+   * @return  List
+   */
+  List<User> findUsers(String query);
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * findUsers.
+   *
+   * @param   query      String
+   * @param   startSize  int
+   * @param   limitSize  int
+   *
+   * @return  List
+   */
+  List<User> findUsers(String query, int startSize, int limitSize);
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
    * DOCUMENT ME!
    *
    * @param   id  DOCUMENT ME!
@@ -44,6 +69,26 @@ public interface UserService {
    * @return  DOCUMENT ME!
    */
   User get(Integer id);
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * getter method for count.
+   *
+   * @return  int
+   */
+  int getCount();
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * getter method for count.
+   *
+   * @param   query  String
+   *
+   * @return  int
+   */
+  int getCount(String query);
 
   //~ ------------------------------------------------------------------------------------------------------------------
 
@@ -56,10 +101,17 @@ public interface UserService {
 
   //~ ------------------------------------------------------------------------------------------------------------------
 
+  /**
+   * list.
+   *
+   * @param   start     int
+   * @param   pageSize  int
+   *
+   * @return  List
+   */
   List<User> list(int start, int pageSize);
 
-  int getCount();
-
+  //~ ------------------------------------------------------------------------------------------------------------------
 
   /**
    * DOCUMENT ME!
@@ -78,10 +130,4 @@ public interface UserService {
    * @param  user  DOCUMENT ME!
    */
   void update(User user);
-
-  List<User> findUsers(String query);
-
-  List<User> findUsers(String query, int startSize, int limitSize);
-
-  int getCount(String query);
 } // end interface UserService

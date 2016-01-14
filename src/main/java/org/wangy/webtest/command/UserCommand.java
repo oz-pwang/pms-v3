@@ -34,9 +34,9 @@ public class UserCommand {
   private String  password;
   private String  phoneNumber;
 // private MultipartFile photo;
-  private String  username;
+  private Integer roleId;
   private String  roleName;
-  private Integer  roleId;
+  private String  username;
 
   //~ Constructors -----------------------------------------------------------------------------------------------------
 
@@ -62,8 +62,9 @@ public class UserCommand {
     if (user.getBirthDate() != null) {
       this.birthDateString = sdf.format(user.getBirthDate());
     }
-    if(user.getRole()!=null){
-      this.roleId = user.getRole().getId();
+
+    if (user.getRole() != null) {
+      this.roleId   = user.getRole().getId();
       this.roleName = user.getRole().getName();
     }
   }
@@ -134,22 +135,7 @@ public class UserCommand {
     return password;
   }
 
-  public String getRoleName() {
-    return roleName;
-  }
-
-  public void setRoleName(String roleName) {
-    this.roleName = roleName;
-  }
-
-  public Integer getRoleId() {
-    return roleId;
-  }
-
-  public void setRoleId(Integer roleId) {
-    this.roleId = roleId;
-  }
-//~ ------------------------------------------------------------------------------------------------------------------
+  //~ ------------------------------------------------------------------------------------------------------------------
 
   /**
    * DOCUMENT ME!
@@ -158,6 +144,28 @@ public class UserCommand {
    */
   public String getPhoneNumber() {
     return phoneNumber;
+  }
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * getter method for role id.
+   *
+   * @return  Integer
+   */
+  public Integer getRoleId() {
+    return roleId;
+  }
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * getter method for role name.
+   *
+   * @return  String
+   */
+  public String getRoleName() {
+    return roleName;
   }
 
   //~ ------------------------------------------------------------------------------------------------------------------
@@ -251,6 +259,28 @@ public class UserCommand {
   //~ ------------------------------------------------------------------------------------------------------------------
 
   /**
+   * setter method for role id.
+   *
+   * @param  roleId  Integer
+   */
+  public void setRoleId(Integer roleId) {
+    this.roleId = roleId;
+  }
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * setter method for role name.
+   *
+   * @param  roleName  String
+   */
+  public void setRoleName(String roleName) {
+    this.roleName = roleName;
+  }
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
    * DOCUMENT ME!
    *
    * @param  username  DOCUMENT ME!
@@ -287,7 +317,7 @@ public class UserCommand {
       }
     }
 
-    if(this.getRoleId()!=null){
+    if (this.getRoleId() != null) {
       Role role = new Role();
       role.setId(this.getRoleId());
       user.setRole(role);

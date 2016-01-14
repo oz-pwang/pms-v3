@@ -1,54 +1,104 @@
 package org.wangy.webtest.model;
 
-import javax.persistence.*;
 import java.io.Serializable;
+
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import javax.persistence.*;
+
+
 /**
  * Created by Administrator on 2015/9/6.
+ *
+ * @author   <a href="mailto:chenglong.du@ozstrategy.com">Chenglong Du</a>
+ * @version  01/14/2016 17:58
  */
-@Entity
-public class Role implements Serializable {
+@Entity public class Role implements Serializable {
+  //~ Static fields/initializers ---------------------------------------------------------------------------------------
+
+  /** Use serialVersionUID for interoperability. */
+  private static final long serialVersionUID = -2977309122139788243L;
+
+  //~ Instance fields --------------------------------------------------------------------------------------------------
+
+  @Column(length = 255)
+  private String description;
 
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Id private Integer id;
 
-    @Column(
-            length = 20,
-            nullable = false,
-            unique = true
-    )
-    private String name;
+  @Column(
+    length   = 20,
+    nullable = false,
+    unique   = true
+  )
+  private String name;
 
-    @Column(
-            length = 255
-    )
-    private String description;
+  //~ Methods ----------------------------------------------------------------------------------------------------------
 
-    public String getName() {
-        return name;
-    }
+  /**
+   * getter method for description.
+   *
+   * @return  String
+   */
+  public String getDescription() {
+    return description;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  //~ ------------------------------------------------------------------------------------------------------------------
 
-    public Integer getId() {
-        return id;
-    }
+  /**
+   * getter method for id.
+   *
+   * @return  Integer
+   */
+  public Integer getId() {
+    return id;
+  }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  //~ ------------------------------------------------------------------------------------------------------------------
 
-    public String getDescription() {
-        return description;
-    }
+  /**
+   * getter method for name.
+   *
+   * @return  String
+   */
+  public String getName() {
+    return name;
+  }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-}
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * setter method for description.
+   *
+   * @param  description  String
+   */
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * setter method for id.
+   *
+   * @param  id  Integer
+   */
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * setter method for name.
+   *
+   * @param  name  String
+   */
+  public void setName(String name) {
+    this.name = name;
+  }
+} // end class Role

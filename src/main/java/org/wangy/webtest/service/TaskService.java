@@ -1,8 +1,8 @@
 package org.wangy.webtest.service;
 
-import org.wangy.webtest.model.Task;
-
 import java.util.List;
+
+import org.wangy.webtest.model.Task;
 
 
 /**
@@ -26,12 +26,22 @@ public interface TaskService {
   /**
    * DOCUMENT ME!
    *
-   * @param   taskName  DOCUMENT ME!
-   * @param   password  DOCUMENT ME!
+   * @param   name  taskName DOCUMENT ME!
    *
    * @return  DOCUMENT ME!
    */
   Task findTask(String name);
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * findTasks.
+   *
+   * @param   query  String
+   *
+   * @return  List
+   */
+  List<Task> findTasks(String query);
 
   //~ ------------------------------------------------------------------------------------------------------------------
 
@@ -47,11 +57,32 @@ public interface TaskService {
   //~ ------------------------------------------------------------------------------------------------------------------
 
   /**
+   * getter method for count.
+   *
+   * @return  int
+   */
+  int getCount();
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
    * DOCUMENT ME!
    *
    * @return  DOCUMENT ME!
    */
   List<Task> list();
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * list.
+   *
+   * @param   startSize  int
+   * @param   limitSize  int
+   *
+   * @return  List
+   */
+  List<Task> list(int startSize, int limitSize);
 
   //~ ------------------------------------------------------------------------------------------------------------------
 
@@ -72,10 +103,4 @@ public interface TaskService {
    * @param  task  DOCUMENT ME!
    */
   void update(Task task);
-
-  List<Task> findTasks(String query);
-
-  List<Task> list(int startSize, int limitSize);
-
-  int getCount();
 } // end interface TaskService

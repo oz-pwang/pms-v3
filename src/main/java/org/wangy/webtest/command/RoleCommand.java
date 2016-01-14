@@ -1,62 +1,137 @@
 package org.wangy.webtest.command;
 
+import java.util.Set;
+
 import org.wangy.webtest.model.Role;
 import org.wangy.webtest.model.User;
 
-import java.util.Set;
 
 /**
  * Created by Administrator on 2015/9/7.
+ *
+ * @author   <a href="mailto:chenglong.du@ozstrategy.com">Chenglong Du</a>
+ * @version  01/14/2016 17:56
  */
 public class RoleCommand {
-    private String name;
-    private String description;
-    private Integer id;
+  //~ Instance fields --------------------------------------------------------------------------------------------------
 
-    public RoleCommand(Role role){
-        this.id  =  role.getId();
-        this.name = role.getName();
-        this.description = role.getDescription();
-    }
+  private String  description;
+  private Integer id;
+  private String  name;
 
-    public RoleCommand() {}
+  //~ Constructors -----------------------------------------------------------------------------------------------------
 
-    //get an set
-    public String getName() {
-        return name;
-    }
+  /**
+   * Creates a new RoleCommand object.
+   */
+  public RoleCommand() { }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  /**
+   * Creates a new RoleCommand object.
+   *
+   * @param  role  Role
+   */
+  public RoleCommand(Role role) {
+    this.id          = role.getId();
+    this.name        = role.getName();
+    this.description = role.getDescription();
+  }
 
-    public String getDescription() {
-        return description;
-    }
+  //~ Methods ----------------------------------------------------------------------------------------------------------
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+  /**
+   * getter method for description.
+   *
+   * @return  String
+   */
+  public String getDescription() {
+    return description;
+  }
 
-    public Integer getId() {
-        return id;
-    }
+  //~ ------------------------------------------------------------------------------------------------------------------
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  /**
+   * getter method for id.
+   *
+   * @return  Integer
+   */
+  public Integer getId() {
+    return id;
+  }
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  // get an set
+  /**
+   * getter method for name.
+   *
+   * @return  String
+   */
+  public String getName() {
+    return name;
+  }
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * setter method for description.
+   *
+   * @param  description  String
+   */
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * setter method for id.
+   *
+   * @param  id  Integer
+   */
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * setter method for name.
+   *
+   * @param  name  String
+   */
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  //~ ------------------------------------------------------------------------------------------------------------------
 
 
-    public Role toRole()throws Exception{
-        Role role = new Role();
-        role.setId(this.getId());
-        role.setName(this.getName());
-        role.setDescription(this.getDescription());
-        return role;
-    }
+  /**
+   * toRole.
+   *
+   * @return  Role
+   *
+   * @throws  Exception  exception
+   */
+  public Role toRole() throws Exception {
+    Role role = new Role();
+    role.setId(this.getId());
+    role.setName(this.getName());
+    role.setDescription(this.getDescription());
 
-    public void update(Role role) {
-        role.setDescription(this.getDescription());
-    }
-    //get and set end
-}
+    return role;
+  }
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * update.
+   *
+   * @param  role  Role
+   */
+  public void update(Role role) {
+    role.setDescription(this.getDescription());
+  }
+  // get and set end
+} // end class RoleCommand

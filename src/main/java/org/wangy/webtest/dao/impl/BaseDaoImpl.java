@@ -1,11 +1,12 @@
 package org.wangy.webtest.dao.impl;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+
 import org.wangy.webtest.dao.UserDao;
 import org.wangy.webtest.model.User;
-
-import java.util.List;
 
 
 /**
@@ -19,7 +20,7 @@ public class BaseDaoImpl {
 
   private SessionFactory sessionFactory;
 
-  //~ ------------------------------------------------------------------------------------------------------------------
+  //~ Methods ----------------------------------------------------------------------------------------------------------
 
   /**
    * DOCUMENT ME!
@@ -30,7 +31,14 @@ public class BaseDaoImpl {
     this.sessionFactory = sessionFactory;
   }
 
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * getter method for session.
+   *
+   * @return  Session
+   */
   protected Session getSession() {
     return sessionFactory.getCurrentSession();
   }
-} // end class UserDaoImpl
+} // end class BaseDaoImpl

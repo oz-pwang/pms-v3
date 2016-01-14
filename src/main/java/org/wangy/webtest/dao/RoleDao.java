@@ -1,8 +1,8 @@
 package org.wangy.webtest.dao;
 
-import org.wangy.webtest.model.Role;
-
 import java.util.List;
+
+import org.wangy.webtest.model.Role;
 
 
 /**
@@ -19,7 +19,7 @@ public interface RoleDao {
    *
    * @param  id  DOCUMENT ME!
    */
-    void delete(Integer id);
+  void delete(Integer id);
 
   //~ ------------------------------------------------------------------------------------------------------------------
 
@@ -28,9 +28,22 @@ public interface RoleDao {
    *
    * @param   name  DOCUMENT ME!
    *
-   * @ return  DOCUMENT ME!
+   *                <p>@ return DOCUMENT ME!</p>
+   *
+   * @return  dOCUMENT ME!
    */
   Role findRole(String name);
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * findRoles.
+   *
+   * @param   query  String
+   *
+   * @return  List
+   */
+  List<Role> findRoles(String query);
 
   //~ ------------------------------------------------------------------------------------------------------------------
 
@@ -46,11 +59,32 @@ public interface RoleDao {
   //~ ------------------------------------------------------------------------------------------------------------------
 
   /**
+   * getter method for count.
+   *
+   * @return  int
+   */
+  int getCount();
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
    * DOCUMENT ME!
    *
    * @return  DOCUMENT ME!
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     */
+   */
   List<Role> list();
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * list.
+   *
+   * @param   start     int
+   * @param   pageSize  int
+   *
+   * @return  List
+   */
+  List<Role> list(int start, int pageSize);
 
   //~ ------------------------------------------------------------------------------------------------------------------
 
@@ -71,10 +105,4 @@ public interface RoleDao {
    * @param  role  DOCUMENT ME!
    */
   void update(Role role);
-
-  List<Role> findRoles(String query);
-
-  List<Role> list(int start, int pageSize);
-
-  int getCount();
-} // end interface UserDao
+} // end interface RoleDao

@@ -11,5 +11,7 @@ public class Constants {
 
   /** DOCUMENT ME! */
   public static final String USERNAME_KEY = "LoggedInUserName";
+
+  /** TODO: DOCUMENT ME! */
   public static final String USERID_KEY = "LoggedInUserID";
 }

@@ -1,8 +1,8 @@
 package org.wangy.webtest.service;
 
-import org.wangy.webtest.model.Project;
-
 import java.util.List;
+
+import org.wangy.webtest.model.Project;
 
 
 /**
@@ -26,12 +26,22 @@ public interface ProjectService {
   /**
    * DOCUMENT ME!
    *
-   * @param   projectName  DOCUMENT ME!
-   * @param   password  DOCUMENT ME!
+   * @param   name  projectName DOCUMENT ME!
    *
    * @return  DOCUMENT ME!
    */
   Project findProject(String name);
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * findProjects.
+   *
+   * @param   query  String
+   *
+   * @return  List
+   */
+  List<Project> findProjects(String query);
 
   //~ ------------------------------------------------------------------------------------------------------------------
 
@@ -47,11 +57,32 @@ public interface ProjectService {
   //~ ------------------------------------------------------------------------------------------------------------------
 
   /**
+   * getter method for count.
+   *
+   * @return  int
+   */
+  int getCount();
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
    * DOCUMENT ME!
    *
    * @return  DOCUMENT ME!
    */
   List<Project> list();
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * list.
+   *
+   * @param   startSize  int
+   * @param   limitSize  int
+   *
+   * @return  List
+   */
+  List<Project> list(int startSize, int limitSize);
 
   //~ ------------------------------------------------------------------------------------------------------------------
 
@@ -72,10 +103,4 @@ public interface ProjectService {
    * @param  project  DOCUMENT ME!
    */
   void update(Project project);
-
-  List<Project> findProjects(String query);
-
-  List<Project> list(int startSize, int limitSize);
-
-  int getCount();
 } // end interface ProjectService
